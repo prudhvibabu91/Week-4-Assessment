@@ -24,14 +24,13 @@ BEGIN
     END
 END;
 GO
-
--- Sample input: inserting a new record
+    
 EXEC AddOrUpdateEmployee 
     @employeeId = 1,
-    @name = 'John Doe',
+    @name = 'prudhvi',
     @exp = 5,
     @salary = 20000,
     @departmentId = 2;
 
--- View table data
 SELECT * FROM Employee;
+
