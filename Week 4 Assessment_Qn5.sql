@@ -13,4 +13,5 @@ BEGIN
 END;
 GO
 
-SELECT dbo.CountWords('Hello how are you today') AS WordCount;
+SELECT dbo.CountWords('Hello this is prudhvi from CGI') AS WordCount;
+
