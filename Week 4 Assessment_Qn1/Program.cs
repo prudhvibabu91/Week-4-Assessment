@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
-
 // Employee base class to hold common properties
 public abstract class Employee
 {
@@ -10,8 +9,7 @@ public abstract class Employee
     public string? Name { get; set; }
     public string? ReportingManager { get; set; }
 }
-
-// Payroll Employee class inheriting from the base class
+// Payroll Employee class inheriting from Employee class
 public class PayrollEmployee : Employee
 {
     public DateTime JoiningDate { get; set; }
@@ -21,7 +19,6 @@ public class PayrollEmployee : Employee
     public decimal HRA { get; set; }
     public decimal PF { get; set; }
     public decimal NetSalary { get; set; }
-
     // Method to calculate net salary based on experience
     public void CalculateNetSalary()
     {
@@ -43,7 +40,7 @@ public class PayrollEmployee : Employee
             HRA = BasicSalary * 0.038m;
             PF = 1800m;
         }
-        else // Covers exp <= 5
+        else
         {
             DA = BasicSalary * 0.019m;
             HRA = BasicSalary * 0.020m;
@@ -53,15 +50,13 @@ public class PayrollEmployee : Employee
         NetSalary = BasicSalary + DA + HRA - PF;
     }
 }
-
-// Contract Employee class
+// Contract Employee class inherting from employee
 public class ContractEmployee : Employee
 {
     public DateTime ContractDate { get; set; }
-    public int Duration { get; set; } // in months
+    public int Duration { get; set; }
     public decimal Charges { get; set; }
 }
-
 public class EmployeeManager
 {
     private readonly string _connectionString = "Server= (localdb)\\MSSQLLocalDB;Database=CompanyDB;Integrated Security=SSPI;";
@@ -82,7 +77,6 @@ public class EmployeeManager
             return employeeId;
         }
     }
-
     // Method to add details for a Payroll Employee
     public void AddPayrollDetails(PayrollEmployee emp)
     {
@@ -103,7 +97,6 @@ public class EmployeeManager
             cmd.ExecuteNonQuery();
         }
     }
-
     // Method to add details for a Contract Employee
     public void AddContractDetails(ContractEmployee emp)
     {
@@ -120,8 +113,7 @@ public class EmployeeManager
             cmd.ExecuteNonQuery();
         }
     }
-
-    // Method to display all employees with their details
+    // Method to display all employees
     public void DisplayAllEmployees()
     {
         using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -153,7 +145,6 @@ public class EmployeeManager
             }
         }
     }
-
     // Method to get the total number of employees
     public int GetTotalEmployeeCount()
     {
@@ -174,7 +165,7 @@ public class Program
         EmployeeManager manager = new EmployeeManager();
         string continueInput = "y";
 
-        // Using a while loop since the number of employees is unknown
+        // using a while loop since the number of employees is unknown
         while (continueInput.ToLower() == "y")
         {
             Console.WriteLine("Enter employee type (Payroll/Contract):");
@@ -244,4 +235,5 @@ public class Program
         Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();
     }
+
 }
