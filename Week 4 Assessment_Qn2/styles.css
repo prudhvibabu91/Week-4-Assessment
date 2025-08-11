@@ -1,0 +1,136 @@
+/* Universal box-sizing for better layout control */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Header section styling */
+header {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.banner-image {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Navigation bar styling */
+.main-nav {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #800080; /* Purple for navigation links */
+    padding: 0 10px;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.main-nav a:hover {
+    color: #5d005d; /* Darker purple on hover */
+}
+
+/* Main content container */
+.content-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Home Page - Product Grid Styling */
+.product-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.product-item {
+    flex: 1 1 210px;
+    max-width: 230px;
+    height: 250px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.product-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* About Us and Contact Us sections */
+.about-us-section p,
+.contact-us-section {
+    color: #000000; /* All body text set to black */
+}
+
+.about-heading {
+    font-size: 1.8em;
+    color: #808080; /* Gray for About Us heading */
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.contact-heading {
+    font-size: 1.8em;
+    color: green; /* Green for Contact Us heading */
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.contact-us-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 20px; /* Added indentation for the main list */
+}
+
+.contact-us-section ul li {
+    margin-bottom: 5px;
+}
+
+.contact-us-section ul li strong {
+    font-size: 1.1em;
+    color: #000000;
+}
+
+.contact-us-section ul ul {
+    margin-left: 10px;
+    margin-top: 2px;
+    list-style-type: disc;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 990px) {
+    .product-grid {
+        justify-content: center;
+    }
+    .product-item {
+        flex: 1 1 200px;
+        max-width: 80%;
+    }
+}
