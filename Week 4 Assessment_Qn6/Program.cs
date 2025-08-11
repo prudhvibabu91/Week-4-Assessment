@@ -1,16 +1,14 @@
 ﻿using System;
-
 class Node
 {
     public int Data;
     public Node? Next; // Nullable
     public Node(int data) { Data = data; Next = null; }
 }
-
 class Queue
 {
-    private Node? front; // Nullable
-    private Node? rear;  // Nullable
+    private Node? front;
+    private Node? rear;  
 
     public void Insert(int data)
     {
@@ -25,7 +23,6 @@ class Queue
             rear = newNode;
         }
     }
-
     public void Delete()
     {
         if (front == null)
@@ -36,14 +33,12 @@ class Queue
         front = front.Next;
         if (front == null) rear = null;
     }
-
     public void DisplayFrontRear()
     {
         Console.WriteLine($"Front: {(front != null ? front.Data : -1)}");
         Console.WriteLine($"Rear: {(rear != null ? rear.Data : -1)}");
     }
 }
-
 class Program
 {
     static void Main(string[] args)
@@ -54,9 +49,9 @@ class Program
         q.Insert(20);
         q.Insert(30);
 
-        q.DisplayFrontRear(); // Should print Front: 10, Rear: 30
+        q.DisplayFrontRear();
 
         q.Delete();
-        q.DisplayFrontRear(); // Should print Front: 20, Rear: 30
+        q.DisplayFrontRear();
     }
 }
